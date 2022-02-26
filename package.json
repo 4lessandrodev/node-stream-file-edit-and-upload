@@ -1,0 +1,25 @@
+{
+  "name": "sharp-stream",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rimraf ./src/imgs/edited/*",
+    "build": "tsc && cp -r ./src/imgs ./dist",
+    "prestart": "rimraf ./dist && yarn build",
+    "start": "env-cmd node --trace-gc ./dist/index",
+    "dev": "env-cmd ts-node ./src/index"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21",
+    "@types/sharp": "^0.29.5",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.5.0",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.53.1",
+    "env-cmd": "^10.1.0",
+    "sharp": "^0.30.1"
+  }
+}
